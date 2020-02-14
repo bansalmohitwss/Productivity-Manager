@@ -1,4 +1,5 @@
 # Productivity-Manager
+### HACK36 - SMART EDUCATION
 A chrome extension that keeps track of how productive a user has been on internet by analysing the contents being consumed by the user.<br>
 
 In this age of Internet most of the studies and productive work are done on the Internet, many times we get distracted from our original work and waste our time on Entertainment.
