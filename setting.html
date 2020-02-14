@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="setting.js"></script>
+    <head>
+        <link rel="stylesheet" href="setting.css">
+      </head>
+    
+    <body class="selector">
+        <p class="top">
+            Choose Productive Categories for you
+        </p>
+        <div id="container" >
+            <label class="container">Arts
+                <input type="checkbox" id = "Arts">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container" >Business
+                <input type="checkbox" id = "Business">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container"  >Computers
+                <input type="checkbox" id = "Computers">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container"  >Health
+                <input type="checkbox" id="Health">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container" >Science
+                <input type="checkbox" id="Science">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container" >Sports
+                <input type="checkbox" id = "Sports">
+                <span class="checkmark"></span>
+              </label>
+        </div>
+     
+    </body>
+    <body>
+        <div class="slidecontainer">
+            <p class="top"> Select Notification Threshold </p>
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+          </div>
+          <span id="f" style="font-weight:bold;color:red">81</span>
+    </body>
+    <br><br>
+    <body>
+        <form class="section">
+            <input class="input" id="productive-textbox" type="text" data-i18n-placeholder="options_whitelist_placeholder_example" placeholder="e.g. www.example.com">
+            <button id="productive-add-button" type="button">Add website</button>
+            <button id="productive-add-remove" type="button">Remove website</button>
+          </form>
+          <ul id="productive-table" class="table list">
+            
+          </ul>
+          <hr>
+          <form class="section">
+            <input class="input" id="unproductive-textbox" type="text" data-i18n-placeholder="options_whitelist_placeholder_example" placeholder="e.g. www.example.com">
+            <button id="unproductive-add-button" type="button">Add website</button>
+            <button id="unproductive-add-remove" type="button">Remove website</button>
+          </form>
+          <ul id="unproductive-table" class="table list">
+            
+          </ul><br><br>
+          <button id ="submit" type="submit">Save</button>
+          &nbsp;&nbsp;
+          <button id ="reset" type="reset">Reset</button>
+          <button id= "erase" > Erase Data </button>
+    </body>
+        
+</html>
