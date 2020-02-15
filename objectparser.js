@@ -15,7 +15,7 @@ function extractObjectFromXMLString(string)
     console.log(status);
     if(status!='2000')
     {
-        //return undefined;
+        return undefined;
     }
     for(var i = 0; i < string.length; i++)
     {
