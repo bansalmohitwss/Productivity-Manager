@@ -3,9 +3,9 @@ urlHash = {}         //urlHAsh
 function findTag(url)
 {
     console.log("url hash : ",urlHash);
-    if(url in productive_site_list)
+    if(productive_site_list.includes(url))
         return 1;
-    if(url in unproductive_site_list)
+    if(unproductive_site_list.includes(url))
         return 0;
     if(url in urlHash)
         return urlHash[url];
