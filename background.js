@@ -133,6 +133,7 @@ chrome.windows.onFocusChanged.addListener(function()
       htmlPage = search(htmlPage);
       //console.log(htmlPage);
       
+      
      if(htmlPage.length>50)
       {
           var request2 = new XMLHttpRequest();
@@ -159,3 +160,17 @@ chrome.windows.onFocusChanged.addListener(function()
   updateData();
   
 });
+
+
+
+function apiRequest(htmlPage)
+{
+    var request = new XMLHttpRequest();
+    request.open('GET','https://uclassify.com/browse/uClassify/Topics/ClassifyUrl/?readKey=Gww5dOtcNIYq&url'+htmlPage,true);
+    request.onload = function(){
+      console.log(request.responseText);
+      var responseObject = extractObjectFromXMLString(request.responseText);
+      
+    }
+    request.send();
+}
