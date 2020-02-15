@@ -76,8 +76,9 @@ function search(str)
             ans=ans+' ';
             i=i+7;
         }
+        str='';
     }
-    return ans;
+    return arr.join('');
 }
 
 //console.log(search('<title>Hello<a>sdkjf</a> Brother</title>'));
@@ -94,8 +95,31 @@ function removeSpace(str)
     return z;
 }
 
-//var request;
-function sendRequest(){
 
-//request.send();
+function apiRequest(htmlPage)
+{
+    var flag=0;
+    console.log('Inside Api Request Method : '+htmlPage);
+    var request = new XMLHttpRequest();
+    request.open('GET',htmlPage,true);
+    request.onload = function(){
+      var modifiedResponse = search(request.responseText);
+
+      var request2 = new XMLHttpRequest();
+      request2.open('GET','https://uclassify.com/browse/uClassify/Topics/ClassifyU'+'rl/?readKey=Gww5dOtcNIYq&url='+htmlPage,true);
+      request2.onload = function(){
+        responseObject = extractObjectFromXMLString(request2.responseText);
+         if(responseObject === undefined)
+         {
+            return -1;
+         }
+        //console.log("responseObject : "+responseObject);
+        flag=1;
+      };
+
+       request2.send();
+       //cur_tag=checkStatus();
+    };
+    request.send();
+    return 0;
 }

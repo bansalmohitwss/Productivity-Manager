@@ -3,9 +3,6 @@
     "name":"Productivity-Manager",
     "version": "1.0",
     "description": "",
-<<<<<<< HEAD
-    
-=======
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
@@ -13,20 +10,16 @@
         }
       ],
       
->>>>>>> fd7a57342d8e74b9e78bf957297d04325e2d7b40
     "browser_action":{
         "default_popup":"popup.html",
         "default_title":"Productivity-Manager"
     },
     "background": {
         "scripts": [
-<<<<<<< HEAD
-          "objectparser.js",
-=======
         
           "hashANDcurData.js",
+          "objectparser.js",
           "request.js",
->>>>>>> fd7a57342d8e74b9e78bf957297d04325e2d7b40
           "background.js"]
     },
     "permissions": [
