@@ -103,42 +103,47 @@ function updateData(){
     );
 }
 
-
-chrome.tabs.onActivated.addListener(function() 
-{
-  //console.log(document.documentElement.innerHTML)
-  chrome.tabs.query({currentWindow:true, active: true}, function(tabs){
-    console.log("before return of chrome.tabs");
-    if(tabs[0]==null){htmlPage=null;return;}
-    console.log(tabs[0]+"in chrome.tabs.query");
-    htmlPage=tabs[0].url;
-    console.log(tabs[0].url);
-    window.urlHash[tabs[0].url] = d.getTime();
+function afterGetURL(){
+  console.log('after getCureent url')
     this.getCurrentTime();
-    //console.log(cur_hdm[0]+'day'+cur_hdm[1]+'month'+cur_hdm[2]);
+    console.log(htmlPage);
+    if(htmlPage===null||htmlPage==="")return;
+    //if(found_inURLhash)else
+    //cur_tag=findTag(htmlPage)
+        
+    apiRequest(htmlPage);
+    //console.log("check Status : "+checkStatus());
+    //else end here
+    cur_tag = checkStatus();
+    cur=d.getMinutes();
+    
+    
+    if(cur_tag==0)
+      chrome.browserAction.setIcon({
+        path : "images/cp_icon.png"
+    });
+      else
+      chrome.browserAction.setIcon({
+        path : "images/p_icon-19.png"
+    });
+      //console.log(cur_hdm[0]+'day'+cur_hdm[1]+'month'+cur_hdm[2]);
     
     //console.log(d.getTime())
+    updateData();
+}
+
+chrome.tabs.onActivated.addListener(function(activeInfo) 
+{
+  //console.log(document.documentElement.innerHTML)
+  chrome.tabs.get(activeInfo.tabId, function (tab){
+    console.log("before return of chrome.tabs");
+    if(tab.url==null){htmlPage=null;return;}
+    console.log(tab+"in chrome.tabs.query");
+    htmlPage=tab.url;
+    console.log(tab.url);
+    this.afterGetURL();
   });
-  console.log(htmlPage);
-  if(htmlPage===null||htmlPage==="")return;
-  //if(found_inURLhash)else
-  //cur_tag=findTag(htmlPage)
-      
-  apiRequest(htmlPage);
-  //console.log("check Status : "+checkStatus());
-  //else end here
-  cur_tag = checkStatus();
-  cur=d.getMinutes();
-  updateData();
   
-  if(cur_tag==0)
-    chrome.browserAction.setIcon({
-      path : "images/cp_icon.png"
-  });
-    else
-    chrome.browserAction.setIcon({
-      path : "images/p_icon-19.png"
-  });
 
 
 });
