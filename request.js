@@ -132,20 +132,36 @@ function checkStatus()
     return -1;
     var tot=0;
     var i;
-    var productive_categories;
-    chrome.storage.sync.get(["poductive_categories"],function(data){
+    var productive_categories=[];
+    chrome.storage.local.get(["poductive_categories"],function(data){
         productive_categories = data.poductive_categories;
+        console.log('inside sync');
+        console.log(productive_categories);
     });
-    
+    console.log(responseObject);
+    //console.log('productive_cate : '+productive_categories);
+
+
     for(i=0;i<productive_categories.length;i++)
     {
         if(productive_categories[i] in responseObject)
         tot += responseObject[productive_categories[i]];
     }
-
+    
+    console.log("tot: "+tot)
     if(tot>=0.55)
     return 1;
     if(tot<0.45)
     return 0;
     return -1;
 }
+
+
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
+  

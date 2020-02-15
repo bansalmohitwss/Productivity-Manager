@@ -19,7 +19,7 @@ $(document).ready(function(){
     
     });
     $('#setting').click(function(){
-        //chrome.tabs.create({url: 'setting.html'});
+        chrome.tabs.create({url: 'setting.html'});
             
     });
   });

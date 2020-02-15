@@ -42,5 +42,5 @@ function extractObjectFromXMLString(string)
 
     }
     responseObject = obj;
-    console.log(responseObject);
+    //console.log(responseObject);
 }

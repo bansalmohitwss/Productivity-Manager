@@ -183,7 +183,9 @@ window.onload = function()
             "unproductive_site_list" : unproductive_site_list,
             'setup_done' : true,
         });
+
         window.location.reload();
+        
     };
     reset_button.onclick = function()
     {

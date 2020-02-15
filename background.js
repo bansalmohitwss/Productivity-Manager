@@ -125,7 +125,7 @@ chrome.windows.onFocusChanged.addListener(function()
   //cur_tag=findTag(htmlPage)
       
   apiRequest(htmlPage);
-  
+  console.log("check Status : "+checkStatus());
   //else end here
   cur=d.getMinutes();
   updateData();
