@@ -14,7 +14,7 @@ $(document).ready(function(){
     $('#home').click(function(){
         console.log("home clicked");
             
-        //chrome.tabs.create({url: 'home.html'});
+        chrome.tabs.create({url: 'home.html'});
             
     
     });
