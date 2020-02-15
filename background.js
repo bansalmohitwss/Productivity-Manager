@@ -124,10 +124,8 @@ chrome.windows.onFocusChanged.addListener(function()
   //if(found_inURLhash)else
   //cur_tag=findTag(htmlPage)
       
-  console.log('Sending Api Request');
- apiRequest(htmlPage);
-  console.log('After apiRequest Method');
-  console.log(responseObject);
+  apiRequest(htmlPage);
+  
   //else end here
   cur=d.getMinutes();
   updateData();

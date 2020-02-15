@@ -1,7 +1,7 @@
 //Receive from url get
 var htmlPage='';
 // Response from api (object)
-var responseObject;
+//var responseObject;
 
 function search(str)
 {
@@ -98,23 +98,17 @@ function removeSpace(str)
 
 function apiRequest(htmlPage)
 {
-    var flag=0;
     console.log('Inside Api Request Method : '+htmlPage);
     var request = new XMLHttpRequest();
-    request.open('GET',htmlPage,true);
+    request.open('GET',htmlPage,false);
     request.onload = function(){
       var modifiedResponse = search(request.responseText);
 
       var request2 = new XMLHttpRequest();
-      request2.open('GET','https://uclassify.com/browse/uClassify/Topics/ClassifyU'+'rl/?readKey=Gww5dOtcNIYq&url='+htmlPage,true);
+      request2.open('GET','https://uclassify.com/browse/uClassify/Topics/ClassifyU'+'rl/?readKey=Gww5dOtcNIYq&url='+htmlPage,false);
       request2.onload = function(){
-        responseObject = extractObjectFromXMLString(request2.responseText);
-         if(responseObject === undefined)
-         {
-            return -1;
-         }
-        //console.log("responseObject : "+responseObject);
-        flag=1;
+        extractObjectFromXMLString(request2.responseText);
+         
       };
 
        request2.send();
@@ -122,4 +116,36 @@ function apiRequest(htmlPage)
     };
     request.send();
     return 0;
+}
+
+
+/*
+  1 for productive
+  0 for non productive 
+  -1 ask user
+*/
+
+
+function checkStatus()
+{
+    if(responseObject === undefined)
+    return -1;
+    var tot=0;
+    var i;
+    var productive_categories;
+    chrome.storage.sync.get(["poductive_categories"],function(data){
+        productive_categories = data.poductive_categories;
+    });
+    
+    for(i=0;i<productive_categories.length;i++)
+    {
+        if(productive_categories[i] in responseObject)
+        tot += responseObject[productive_categories[i]];
+    }
+
+    if(tot>=0.55)
+    return 1;
+    if(tot<0.45)
+    return 0;
+    return -1;
 }
