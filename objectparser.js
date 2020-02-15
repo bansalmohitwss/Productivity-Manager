@@ -1,3 +1,5 @@
+var responseObject;
+
 function extractObjectFromXMLString(string)
 {
     //console.log("Object Extractor Ran ");
@@ -39,6 +41,6 @@ function extractObjectFromXMLString(string)
         }
 
     }
-    console.log(obj);
-    return obj;
+    responseObject = obj;
+    console.log(responseObject);
 }

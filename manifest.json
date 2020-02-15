@@ -16,10 +16,10 @@
     },
     "background": {
         "scripts": [
-        
-          "hashANDcurData.js",
+         
           "objectparser.js",
           "request.js",
+          "hashANDcurData.js",
           "background.js"]
     },
     "permissions": [
