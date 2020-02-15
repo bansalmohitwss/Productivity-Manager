@@ -4,7 +4,7 @@ var last=d.getMinutes();
 last_hdm[0]=d.getHours();last_hdm[1]=d.getDate();last_hdm[2]=d.getMonth();
 function getCurrentTime(){
     cur_hdm[0]=d.getHours();cur_hdm[1]=d.getDate();cur_hdm[2]=d.getMonth()+1;
-    chrome.storage.sync.get(['last_time','hour_t','hour_p','day_t','day_p','month_p','month_t','poductive_categories',"productive_site_list","unproductive_site_list"],function(data)
+    chrome.storage.sync.get(['last_time','hour_t','hour_p','day_t','day_p','month_p','month_t','productive_site_list','unproductive_site_list'],function(data)
         {
             last_hdm=data.last_time;
             hour_p=data.hour_p;
@@ -13,7 +13,6 @@ function getCurrentTime(){
             day_t=data.day_t;
             month_p=data.month_p;
             month_t=data.month_t;
-            productive_categories=data.poductive_categories;
             productive_site_list = data.productive_site_list;
             unproductive_site_list = data.unproductive_site_list;
         }
@@ -21,6 +20,13 @@ function getCurrentTime(){
     chrome.storage.sync.set({"last_time":cur_hdm});
     
 }
+
+chrome.storage.sync.get(['poductive_categories'], function(data)
+    {
+
+        productive_categories=data.poductive_categories;
+    }
+);
 //Receive from url get
 var htmlPage='';
 // Response from api (object)
@@ -128,7 +134,7 @@ function apiRequest(htmlPage)
       var modifiedResponse = search(request.responseText);
 
       var request2 = new XMLHttpRequest();
-      request2.open('GET','https://uclassify.com/browse/uClassify/Topics/ClassifyU'+'rl/?readKey=Gww5dOtcNIYq&url='+htmlPage,false);
+      request2.open('GET','https://uclassify.com/browse/uClassify/Topics/ClassifyU'+'rl/?readKey=dWoGfPmtw20A&url='+htmlPage,false);
       request2.onload = function(){
         extractObjectFromXMLString(request2.responseText);
          
@@ -170,7 +176,7 @@ function checkStatus()
     
     console.log("tot: "+tot)
     if(tot>=0.55)
-    return -1;
+    return 1;
     if(tot<0.45)
     return 0;
     return -1;

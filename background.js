@@ -119,7 +119,7 @@ function afterGetURL(){
     cur=d.getMinutes();
     
     
-    if(cur_tag == -1 && !(htmlPage in productive_site_list) && !(htmlPage in unproductive_site_list)){
+    /*if(cur_tag == -1 && !(htmlPage in productive_site_list) && !(htmlPage in unproductive_site_list)){
       var x;
       while(1){
         x = prompt('Not able to predict category of webpage.\nEnter category for this webpage.\n1.Productive\n2.Non-Productive');
@@ -142,7 +142,7 @@ function afterGetURL(){
         "unproductive_site_list": unproductive_site_list
       });
 
-    }
+    }*/
     
 
     if(cur_tag==0)
