@@ -117,16 +117,35 @@ function apiRequest(htmlPage)
     request.send();
     return 0;
 }
-// return -1
+
+
+/*
+  1 for productive
+  0 for non productive 
+  -1 ask user
+*/
+
+
 function checkStatus()
 {
     if(responseObject === undefined)
     return -1;
     var tot=0;
     var i;
-
-    for(i=0;i<poductive.length;i++)
+    var productive_categories;
+    chrome.storage.sync.get(["poductive_categories"],function(data){
+        productive_categories = data.poductive_categories;
+    });
+    
+    for(i=0;i<productive_categories.length;i++)
     {
-        
+        if(productive_categories[i] in responseObject)
+        tot += responseObject[productive_categories[i]];
     }
+
+    if(tot>=0.55)
+    return 1;
+    if(tot<0.45)
+    return 0;
+    return -1;
 }

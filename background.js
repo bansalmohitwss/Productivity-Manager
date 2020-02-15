@@ -131,8 +131,3 @@ chrome.windows.onFocusChanged.addListener(function()
   updateData();
   
 });
-
-function checkCurrentProductivity(tabs)
-{
-   
-}
