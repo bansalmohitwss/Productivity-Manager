@@ -1,10 +1,10 @@
-var cur_hdm=[],last_hdm=[],hour_p=[],hour_t=[],day_p=[],day_t=[],month_p=[],month_t=[],productive_categories=[];
+var cur_hdm=[],last_hdm=[],hour_p=[],hour_t=[],day_p=[],day_t=[],month_p=[],month_t=[],productive_categories=[],productive_site_list=[],unproductive_site_list=[];
 var d=new Date();
 var last=d.getMinutes();
 last_hdm[0]=d.getHours();last_hdm[1]=d.getDate();last_hdm[2]=d.getMonth();
 function getCurrentTime(){
     cur_hdm[0]=d.getHours();cur_hdm[1]=d.getDate();cur_hdm[2]=d.getMonth()+1;
-    chrome.storage.sync.get(['last_time','hour_t','hour_p','day_t','day_p','month_p','month_t','poductive_categories'],function(data)
+    chrome.storage.sync.get(['last_time','hour_t','hour_p','day_t','day_p','month_p','month_t','poductive_categories',"productive_site_list","unproductive_site_list"],function(data)
         {
             last_hdm=data.last_time;
             hour_p=data.hour_p;
@@ -14,6 +14,8 @@ function getCurrentTime(){
             month_p=data.month_p;
             month_t=data.month_t;
             productive_categories=data.poductive_categories;
+            productive_site_list = data.productive_site_list;
+            unproductive_site_list = data.unproductive_site_list;
         }
     );
     chrome.storage.sync.set({"last_time":cur_hdm});

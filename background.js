@@ -111,10 +111,11 @@ function afterGetURL(){
     //if(found_inURLhash)else
     //cur_tag=findTag(htmlPage)
         
-    apiRequest(htmlPage);
+    
     //console.log("check Status : "+checkStatus());
     //else end here
-    cur_tag = checkStatus();
+    cur_tag = findTag(htmlPage);
+    console.log("check Status : "+cur_tag);
     cur=d.getMinutes();
     
     
