@@ -1,4 +1,4 @@
-/*chrome.storage.sync.get(['setup_done'],
+chrome.storage.sync.get(['setup_done'],
     function(data)
     {
         if(data.setup_done==undefined||data.setup_done==false)
@@ -7,7 +7,7 @@
         }
         console.log(data);
     }
-);*/
+);
 console.log("popup")
 $(document).ready(function(){
     console.log("check1")
