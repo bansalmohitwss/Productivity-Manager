@@ -170,7 +170,7 @@ function checkStatus()
     
     console.log("tot: "+tot)
     if(tot>=0.55)
-    return 1;
+    return -1;
     if(tot<0.45)
     return 0;
     return -1;
