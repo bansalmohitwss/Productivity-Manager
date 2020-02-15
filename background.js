@@ -104,7 +104,7 @@ function updateData(){
 }
 
 
-chrome.windows.onFocusChanged.addListener(function() 
+chrome.tabs.onActivated.addListener(function() 
 {
   //console.log(document.documentElement.innerHTML)
   chrome.tabs.query({currentWindow:true, active: true}, function(tabs){
@@ -125,9 +125,20 @@ chrome.windows.onFocusChanged.addListener(function()
   //cur_tag=findTag(htmlPage)
       
   apiRequest(htmlPage);
-  console.log("check Status : "+checkStatus());
+  //console.log("check Status : "+checkStatus());
   //else end here
+  cur_tag = checkStatus();
   cur=d.getMinutes();
   updateData();
   
+  if(cur_tag==0)
+    chrome.browserAction.setIcon({
+      path : "images/cp_icon.png"
+  });
+    else
+    chrome.browserAction.setIcon({
+      path : "images/p_icon-19.png"
+  });
+
+
 });
