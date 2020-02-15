@@ -119,6 +119,32 @@ function afterGetURL(){
     cur=d.getMinutes();
     
     
+    if(cur_tag == -1 && !(htmlPage in productive_site_list) && !(htmlPage in unproductive_site_list)){
+      var x;
+      while(1){
+        x = prompt('Not able to predict category of webpage.\nEnter category for this webpage.\n1.Productive\n2.Non-Productive');
+        if(x==1 || x==2)
+        break;
+      }
+      
+      if(x==1){
+        productive_site_list.push(htmlPage);
+        console.log(productive_site_list);
+        cur_tag=1;
+      }else{
+        unproductive_site_list.push(htmlPage);
+        console.log(unproductive_site_list);
+        cur_tag=0;
+      }
+
+      chrome.storage.sync.set({
+        "productive_site_list": productive_site_list,
+        "unproductive_site_list": unproductive_site_list
+      });
+
+    }
+    
+
     if(cur_tag==0)
       chrome.browserAction.setIcon({
         path : "images/cp_icon.png"
