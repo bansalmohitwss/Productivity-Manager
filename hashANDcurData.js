@@ -1,6 +1,6 @@
-window.urlHash = {}         //urlHAsh
+urlHash = {}         //urlHAsh
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  window.urlHash[request.url] = request.count
+  urlHash[request.url] = //findTag(request.url)
 })
 
 //chrome.browserAction.onClicked.addListener(function (tab) {
