@@ -2,24 +2,13 @@ var responseObject;
 
 function extractObjectFromXMLString(string)
 {
-    console.log("Object Extractor Ran ");
+    ///console.log("Object Extractor Ran ");
     var obj = {};
     var find = "className=";
     var curr = 0;
-    var k = 154;
-    var status = "";
-    while(string[k]!='"')
-    {
-        status += string[k++];
-    }
-    console.log(status);
-    if(status!='2000')
-    {
-        return undefined;
-    }
     for(var i = 0; i < string.length; i++)
     {
-        //console.log(i,string[i]);
+       // console.log(i,string[i]);
         if(string[i]==find[curr])
         {
             curr++;
@@ -50,6 +39,39 @@ function extractObjectFromXMLString(string)
             //console.log(key + " : " + value);
             curr = 0;
             continue;
+        }
+
+    }
+    find = "statusCode";
+    var curr = 0;
+    for(var i = 0; i < string.length; i++)
+    {
+        //console.log(i,string[i]);
+        if(string[i]==find[curr])
+        {
+            curr++;
+        }
+        else
+        {
+            curr = 0;
+            continue;
+        }
+        //console.log(curr);
+        if(curr == find.length)
+        {
+            var key = "";
+            var j = i + 3;
+            
+            while(string[j]!='"')
+            {
+                key += string[j++];
+            }
+            //console.log(key);
+            if(key!='2000')
+            {
+                responseObject = undefined;
+                return;
+            }
         }
 
     }
