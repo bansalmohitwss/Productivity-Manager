@@ -6,7 +6,7 @@
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-        //  "js": ["content.js"]
+          "js": ["content.js"]
         }
       ],
     
@@ -16,7 +16,9 @@
     },
     "background": {
         "scripts": [
-       //   "alarmsetup.js",
+          "alarmsetup.js",
+          "hashANDcurData.js",
+          "request.js",
           "background.js"]
     },
     "permissions": [

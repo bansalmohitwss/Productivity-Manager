@@ -1,4 +1,4 @@
-chrome.storage.sync.get(['setup_done'],
+/*chrome.storage.sync.get(['setup_done'],
     function(data)
     {
         if(data.setup_done==undefined||data.setup_done==false)
@@ -7,19 +7,19 @@ chrome.storage.sync.get(['setup_done'],
         }
         console.log(data);
     }
-);
+);*/
 console.log("popup")
 $(document).ready(function(){
     console.log("check1")
     $('#home').click(function(){
         console.log("home clicked");
             
-        chrome.tabs.create({url: 'home.html'});
+        //chrome.tabs.create({url: 'home.html'});
             
     
     });
     $('#setting').click(function(){
-        chrome.tabs.create({url: 'setting.html'});
+        //chrome.tabs.create({url: 'setting.html'});
             
     });
   });
