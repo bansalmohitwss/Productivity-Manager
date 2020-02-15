@@ -3,12 +3,6 @@
     "name":"Productivity-Manager",
     "version": "1.0",
     "description": "",
-    "content_scripts": [
-        {
-          "matches": ["<all_urls>"],
-        //  "js": ["content.js"]
-        }
-      ],
     
     "browser_action":{
         "default_popup":"popup.html",
@@ -16,7 +10,7 @@
     },
     "background": {
         "scripts": [
-       //   "alarmsetup.js",
+          "objectparser.js",
           "background.js"]
     },
     "permissions": [
