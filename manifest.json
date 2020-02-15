@@ -23,7 +23,8 @@
           "objectparser.js",
           "request.js",
           "hashANDcurData.js",
-          "background.js"]
+          "background.js"],
+          "persistent": false
     },
     "permissions": [
         "tabs",
