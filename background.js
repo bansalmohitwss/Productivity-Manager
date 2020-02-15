@@ -1,6 +1,6 @@
 var prev_tag=1,cur_tag;
 
-function updateData(){
+function updateData(){                     
     var ht=hour_t.pop(),hp=hour_p.pop(),dt=day_t.pop(),dp=day_p.pop(),mt=month_t.pop(),mp=month_p.pop();
   if(last_hdm[2]!=cur_hdm[2]){                  //diff month
     mt+=(60-last);
