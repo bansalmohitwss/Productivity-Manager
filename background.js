@@ -123,54 +123,13 @@ chrome.windows.onFocusChanged.addListener(function()
   if(htmlPage===null||htmlPage==="")return;
   //if(found_inURLhash)else
   //cur_tag=findTag(htmlPage)
-  var request = new XMLHttpRequest();
-  console.log(htmlPage);
-  request.open('GET',htmlPage,true);
-  request.onload = function(){
-      htmlPage = request.responseText;
       
-      //console.log(htmlPage);
-      htmlPage = search(htmlPage);
-      //console.log(htmlPage);
-      
-      
-     if(htmlPage.length>50)
-      {
-          var request2 = new XMLHttpRequest();
-           request2.open('GET','https://api.uclassify.com/v1/uClassify/Topics/classify/?readKey=dWoGfPmtw20A&url=https://www.youtube.com/watch?v=jqp0lqrfQwQ',true);
-           request2.onload = function(){
-           var responseObject = JSON.parse(request2.responseText);
-           console.log(responseObject);
-           };
-           request2.send();
-           cur_tag=checkStatus();
-      }
-      else
-      {
-          // if number of tokens are less than 50 what to do
-        console.log("less than 50");
-      }
-      
-      //console.log(htmlPage);
-  };
-  request.send();
+  console.log('Sending Api Request');
+ apiRequest(htmlPage);
+  console.log('After apiRequest Method');
+  console.log(responseObject);
   //else end here
   cur=d.getMinutes();
-
   updateData();
   
 });
-
-
-
-function apiRequest(htmlPage)
-{
-    var request = new XMLHttpRequest();
-    request.open('GET','https://uclassify.com/browse/uClassify/Topics/ClassifyUrl/?readKey=Gww5dOtcNIYq&url'+htmlPage,true);
-    request.onload = function(){
-      console.log(request.responseText);
-      var responseObject = extractObjectFromXMLString(request.responseText);
-      
-    }
-    request.send();
-}

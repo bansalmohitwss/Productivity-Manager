@@ -18,6 +18,7 @@
         "scripts": [
         
           "hashANDcurData.js",
+          "objectparser.js",
           "request.js",
           "background.js"]
     },
