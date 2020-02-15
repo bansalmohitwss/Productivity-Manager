@@ -23,7 +23,9 @@
           "objectparser.js",
           "request.js",
           "hashANDcurData.js",
-          "background.js"],
+          "background.js",
+          "alarmsetup.js"
+        ],
           "persistent": false
     },
     "permissions": [
