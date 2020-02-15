@@ -6,6 +6,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 //chrome.browserAction.onClicked.addListener(function (tab) {
 //  chrome.tabs.create({url: 'tab_popup.html'})
 //});
+
+
 var cur_hdm=[],last_hdm=[],hour_p=[],hour_t=[],day_p=[],day_t=[],month_p=[],month_t=[],productive_categories=[];
 var d=new Date();
 var last=d.getMinutes();
